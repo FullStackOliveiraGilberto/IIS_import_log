@@ -1,0 +1,28 @@
+select substring(coluna1,1                               , dbo.INSTR(coluna1, ' ' , 1,1))                                     as date ,    -- 11
+       substring(coluna1,dbo.INSTR(coluna1, ' ' , 1,1)+1 , dbo.INSTR(coluna1, ' ' , 1,2) - dbo.INSTR(coluna1, ' ' , 1,1) )    as hora,    -- 20
+	   substring(coluna1,dbo.INSTR(coluna1, ' ' , 1,2)+1 , dbo.INSTR(coluna1, ' ' , 1,3) - dbo.INSTR(coluna1, ' ' , 1,2) )    as [c-ip],    -- 27
+	   substring(coluna1,dbo.INSTR(coluna1, ' ' , 1,3)+1 , dbo.INSTR(coluna1, ' ' , 1,4) - dbo.INSTR(coluna1, ' ' , 1,3) )    as name_Server,    -- 39
+	   substring(coluna1,dbo.INSTR(coluna1, ' ' , 1,4)+1 , dbo.INSTR(coluna1, ' ' , 1,5) - dbo.INSTR(coluna1, ' ' , 1,4) )    as IPServer,    -- 39
+	   substring(coluna1,dbo.INSTR(coluna1, ' ' , 1,5)+1 , dbo.INSTR(coluna1, ' ' , 1,6) - dbo.INSTR(coluna1, ' ' , 1,5) )    as method,    -- 39
+	   substring(coluna1,dbo.INSTR(coluna1, ' ' , 1,6)+1 , dbo.INSTR(coluna1, ' ' , 1,7) - dbo.INSTR(coluna1, ' ' , 1,6) )    as uri_strem,    -- 39
+	   len( substring(coluna1,dbo.INSTR(coluna1, ' ' , 1,6)+1 , dbo.INSTR(coluna1, ' ' , 1,7) - dbo.INSTR(coluna1, ' ' , 1,6) ) ) as len_uri_str,
+	   substring(coluna1,dbo.INSTR(coluna1, ' ' , 1,7)+1 , dbo.INSTR(coluna1, ' ' , 1,8) - dbo.INSTR(coluna1, ' ' , 1,7) )    as parameter,    -- 39
+
+	   substring(coluna1,dbo.INSTR(coluna1, ' ' , 1,8)+1 , dbo.INSTR(coluna1, ' ' , 1,9) - dbo.INSTR(coluna1, ' ' , 1,8) )    as port,    -- 39
+	   substring(coluna1,dbo.INSTR(coluna1, ' ' , 1,9)+1 , dbo.INSTR(coluna1, ' ' , 1,10) - dbo.INSTR(coluna1, ' ' , 1,9) )   as coluna10,    -- 39
+	   substring(coluna1,dbo.INSTR(coluna1, ' ' , 1,10)+1 , dbo.INSTR(coluna1, ' ' , 1,11) - dbo.INSTR(coluna1, ' ' , 1,10) ) as cliente_ip,    -- 39
+	   substring(coluna1,dbo.INSTR(coluna1, ' ' , 1,11)+1 , dbo.INSTR(coluna1, ' ' , 1,12) - dbo.INSTR(coluna1, ' ' , 1,11) ) as http_versao,    -- 39
+	   
+	   substring(coluna1,dbo.INSTR(coluna1, ' ' , 1,12)+1 , dbo.INSTR(coluna1, ' ' , 1,13) - dbo.INSTR(coluna1, ' ' , 1,12) ) as Tbrowse,    -- 39
+	   LEN(substring(coluna1,dbo.INSTR(coluna1, ' ' , 1,12)+1 , dbo.INSTR(coluna1, ' ' , 1,13) - dbo.INSTR(coluna1, ' ' , 1,12) )) as LENTbrowse,    -- 39
+	   substring(coluna1,dbo.INSTR(coluna1, ' ' , 1,13)+1 , dbo.INSTR(coluna1, ' ' , 1,14) - dbo.INSTR(coluna1, ' ' , 1,13) ) as token_parame,    -- 39
+	   substring(coluna1,dbo.INSTR(coluna1, ' ' , 1,14)+1 , dbo.INSTR(coluna1, ' ' , 1,15) - dbo.INSTR(coluna1, ' ' , 1,14) ) as url,    -- 39
+	   substring(coluna1,dbo.INSTR(coluna1, ' ' , 1,15)+1 , dbo.INSTR(coluna1, ' ' , 1,16) - dbo.INSTR(coluna1, ' ' , 1,15) ) as host_port,    -- 39
+	   substring(coluna1,dbo.INSTR(coluna1, ' ' , 1,16)+1 , dbo.INSTR(coluna1, ' ' , 1,17) - dbo.INSTR(coluna1, ' ' , 1,16) ) as HTTP_Status,    -- 39
+	   substring(coluna1,dbo.INSTR(coluna1, ' ' , 1,17)+1 , dbo.INSTR(coluna1, ' ' , 1,18) - dbo.INSTR(coluna1, ' ' , 1,17) ) as coluna23,    -- 39
+	   substring(coluna1,dbo.INSTR(coluna1, ' ' , 1,18)+1 , dbo.INSTR(coluna1, ' ' , 1,19) - dbo.INSTR(coluna1, ' ' , 1,18) ) as coluna24,      -- 39
+	   substring(coluna1,dbo.INSTR(coluna1, ' ' , 1,19)+1 , dbo.INSTR(coluna1, ' ' , 1,20) - dbo.INSTR(coluna1, ' ' , 1,19) ) as sc_bytes,      -- 39
+	   substring(coluna1,dbo.INSTR(coluna1, ' ' , 1,20)+1 , dbo.INSTR(coluna1, ' ' , 1,21) - dbo.INSTR(coluna1, ' ' , 1,20) ) as cs_bytes,      -- 39
+	   substring(coluna1,dbo.INSTR(coluna1, ' ' , 1,21)+1 , dbo.INSTR(coluna1, ' ' , 1,21) - dbo.INSTR(coluna1, ' ' , 1,20) ) as TimeTaken    -- 39
+  from temp4 
+  order by LENTbrowse DESC
